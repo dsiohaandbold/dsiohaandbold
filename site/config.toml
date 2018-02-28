@@ -1,0 +1,5 @@
+baseURL = "https://dsiohaandbold.dk"
+languageCode = "da-dk"
+DefaultContentLanguage = "da"
+title = "DSIO Håndbold"
+disableKinds = ["taxonomy", "taxonomyTerm"]
