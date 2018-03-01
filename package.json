@@ -3,10 +3,19 @@
   "version": "0.0.1",
   "license": "MIT",
   "scripts": {
-    "build": "hugo -s site -d ../build --cleanDestinationDir"
+    "build": "yarn build:scss && yarn build:hugo",
+    "build:hugo": "hugo -s site -d ../build --cleanDestinationDir",
+    "build:scss": "node-sass --recursive --output site/static/css --include-path node_modules src/scss",
+    "watch:hugo": "yarn build:hugo server",
+    "watch:scss": "yarn build:scss --watch"
   },
   "devDependencies": {
-    "hugo-bin": "^0.23.0",
-    "rimraf": "^2.6.2"
+    "hugo-bin": "0.23.0",
+    "node-sass": "4.7.2",
+    "rimraf": "2.6.2"
+  },
+  "dependencies": {
+    "bootstrap": "4.0.0",
+    "bootswatch": "4.0.0"
   }
 }
