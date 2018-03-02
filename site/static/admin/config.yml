@@ -1,0 +1,36 @@
+backend:
+  name: git-gateway
+media_folder: static/images/uploads
+public_folder: /images/uploads
+
+collections:
+- name: people
+  label: People
+  label_singular: Person
+  folder: data/people
+  create: true
+  format: yml
+  fields:
+  - {label: Name, name: title, widget: string}
+  - {label: Email, name: email, widget: string}
+  - {label: Phone number, name: phone, widget: string}
+  - {label: Photo, name: photo, widget: image, required: false}
+- name: teams
+  label: Teams
+  folder: content/teams
+  create: true
+  fields:
+  - {label: Team name, name: title, widget: string}
+  - label: Coach(es)
+    name: coaches
+    widget: list
+    fields:
+    - label: Coach
+      name: coach
+      widget: relation
+      collection: people
+      searchFields: title
+      valueField: title
+    - {label: Title, name: title, widget: string}
+  - {label: Description, name: body, widget: markdown}
+  - {label: Team photo, name: photo, widget: image, required: false}
